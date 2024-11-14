@@ -1,7 +1,7 @@
 from getGame.getGame import GetGame
 
 def main():
-  GetGame('avalibleVersion.txt')
+  GetGame('C:/IT/Python/LonaRPGscraper/avalibleVersion.txt', 'D:\Games\Lona')
   
 
 if __name__ ==  "__main__":
