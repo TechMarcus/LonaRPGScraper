@@ -33,7 +33,6 @@ def GetGame(file_path, download_folder):
   mainFolder = '1-AbAeaaIuW9jrCFy6UQ9w7t2l-R_cOGD'
   files = GetFiles(mainFolder)
   df = pd.DataFrame(files)
-  print(df)
   id = df['id'].values[0]
   files = GetFiles(id)
   df = pd.DataFrame(files)
