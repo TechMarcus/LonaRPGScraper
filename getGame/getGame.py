@@ -1,5 +1,6 @@
+import gdown
 from getGame.googleDriveServiceInstance import service
-import gdown, pandas as pd
+import pandas as pd
 
 
 def GetFiles(folder):
@@ -15,30 +16,40 @@ def GetFiles(folder):
       nextPageToken = response.get('nextPageToken')
     return files
 
-def Download(Name, Id):
-  url = 'https://drive.google.com/uc?id=' +  Id
-  name =  Name
-  gdown.download(url, name, quiet=False)
+def Download(id, download_path):
+  gdown.download(
+       id=id,
+       quiet=False,
+       output=download_path
+   )
+
 
 def IsNewVersion(version, file):
    with open(file, "r") as f:
       firstLine = f.readline()
       if firstLine != version:
-         with open(file, 'w') as f:
-            f.write(version)
-            return True
+          return version
 
-def GetGame(filepath):
+def GetGame(filepath, download_path):
   mainFolder = '1-AbAeaaIuW9jrCFy6UQ9w7t2l-R_cOGD'
   files = GetFiles(mainFolder)
   df = pd.DataFrame(files)
   id = df['id'].values[0]
   files = GetFiles(id)
+
+  df = pd.DataFrame(files)
+  id = df['id'].values[0]
+  files = GetFiles(id)
+
   df = pd.DataFrame(files)
   id = df['id'].values[0]
   name = df['name'].values[0]
-  if IsNewVersion(name, filepath):
-    Download(name, id)
+  
+  new_version = IsNewVersion(name, filepath)
+  if new_version is not None:
+    Download(id, download_path)
+    with open(filepath, 'w') as f:
+      f.write(new_version)
     print("new version is avalible")
 
 
