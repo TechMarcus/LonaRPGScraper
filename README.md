@@ -1,2 +1,2 @@
 # LonaRPGScraper
-Bot that automaticly downloads new Lonarpg version.
+Bot that automaticly downloads new LonaRPG version.
