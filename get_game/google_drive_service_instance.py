@@ -1,4 +1,4 @@
-from getGame.Google import Create_Service
+from get_game.google import Create_Service
 
 CLIENT_SECRET_FILE = 'client_secret_Lona.json'
 API_NAME = 'drive'

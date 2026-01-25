@@ -1,7 +1,7 @@
-from getGame.getGame import GetGame
+from get_game.get_game import get_game
 
 def main():
-  GetGame('avalibleVersion.txt', "D:/Games/Lona/LonaRPG.zip")
+  get_game('avalibleVersion.txt', "D:/Games/Lona/")
   
 if __name__ ==  "__main__":
   main()

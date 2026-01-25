@@ -1,0 +1,1 @@
+D:\Code\FunProjects\LonaRPGScraper\venv\Scripts\activate.bat && python D:\Code\FunProjects\LonaRPGScraper\main.py
